@@ -28,15 +28,39 @@ export default function HomeScreen({ navigation }: Props) {
         data={movies}
         keyExtractor={(m) => m.id}
         renderItem={renderItem}
-        contentContainerStyle={{ padding: 16 }}
+        numColumns={2}
+        columnWrapperStyle={styles.row}
+        contentContainerStyle={styles.listPadding}
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { backgroundColor: '#fff' },
-  card: { marginBottom: 16, alignItems: 'center' },
-  poster: { width: 120, height: 180, borderRadius: 8 },
-  title: { marginTop: 8, fontSize: 16 },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  listPadding: {
+    padding: 16,
+  },
+  row: {
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  card: {
+    flex: 1,                
+    marginHorizontal: 8,   
+    alignItems: 'center',
+  },
+  poster: {
+    width: '100%',        
+    height: 180,
+    borderRadius: 8,
+  },
+  title: {
+    marginTop: 8,
+    fontSize: 16,
+    textAlign: 'center',
+  },
 });
